@@ -1,0 +1,55 @@
+@import '../../styles.scss';
+
+.user{
+    
+    .box{
+        width: 900px;
+        height: 400px;
+        background-color: $bgColorFirst;
+        .box-img {
+            width: 100px;
+            height: 150px;
+            border-radius: 45%;
+            margin: auto;
+        
+            img {
+                border-radius: 45%;
+                -webkit-border-radius: 45%;
+                -moz-border-radius: 45%;
+                -ms-border-radius: 45%;
+                -o-border-radius: 45%;
+                width: 100px;
+            }
+        
+            .box-upload{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+        
+        }
+    
+        form{
+            input{
+                background-color: $bgColorSecond;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:600px) {
+    .user{
+        .box{
+            width: 300px;
+            height: 500px;
+            background-color: $bgColorFirst;
+            .row{
+                #fName{
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+}
+
+

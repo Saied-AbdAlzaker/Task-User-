@@ -1,0 +1,35 @@
+<div class="row container rounded-5 m-auto mt-5">
+    <div class="text-center my-3">
+        <input type="text" id="search" class="form-control my-3 w-50 m-auto" placeholder="Search By Name...">
+        <button routerLink="/addUser" class="btn btn-info"> <i
+                class="fa-solid fa-plus mx-2"></i>{{addUser}}</button>
+    </div>
+
+    <div class="col-md-12 d-flex justify-content-center align-items-center position-relative my-4" 
+    *ngFor="let user of usersLists | paginate: {
+        itemsPerPage: tableSize,
+        currentPage: page,
+        totalItems: count 
+    }; let i = index">
+
+
+        <div class="content-img me-3">
+            <img [src]="user.picture" alt="" class="rounded-5">
+        </div>
+        <div class="content-text">
+            <p>{{user.firstName}} {{user.lastName}}</p>
+            <p>{{user.id}}</p>
+        </div>
+        
+        <button (click)="onUpdateUsers(user ,user.id)" class="m-3 bg-body border-0"><i class="fa-regular fa-pen-to-square"
+                style="color: #1BB0F0;"></i></button>
+        <button (click)="onDeleteUsers(user.id)" class="my-3 bg-body border-0"><i class="fa-solid fa-trash" style="color: #EC1B1B;"></i></button>
+    </div>
+    <div class="line w-50"></div>
+
+    <pagination-controls 
+    previousLabel="Prev" 
+    nextLabel="Next"
+    (pageChange)="onTableDataChange($event)">
+    </pagination-controls>
+</div>

@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+$bgColorFirst:#FFFFFF;
+$bgColorSecond:#F5F5F5;
+
+
+body{
+    padding: 0;
+    margin: 0;
+    background-image: url('../src/assets/img/bg.jpeg');
+    background-size: cover;
+    *{
+        font-family: cursive;
+    }
+}

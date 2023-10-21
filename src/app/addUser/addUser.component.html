@@ -1,0 +1,50 @@
+<div class="user">
+    <div class="box container rounded-5 mt-5">
+        <form [formGroup]="userForm" (ngSubmit)="submitForm()" class="my-3 p-4">
+            <div class="box-img text-center my-3 position-relative">
+                <img [src]="url" alt="" class="mt-2">
+                <input type="file" hidden formControlName="picture" id="upload" (change)="getImg($event)">
+                <label for="upload" class="box-upload">{{photo}} {{user}}</label>
+                <div class="alert text-danger" *ngIf="userForm.controls.picture.errors && userForm.controls.picture.touched">
+                    <p *ngIf="userForm.controls.picture.errors.required">Picture Is Required</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input id="fName" type="text" formControlName="firstName" class="form-control rounded-5" placeholder="First Name">
+                    <div class="alert text-danger" *ngIf="userForm.controls.firstName.errors && userForm.controls.firstName.touched">
+                        <p *ngIf="userForm.controls.firstName.errors.required">First Name Is Required</p>
+                        <p *ngIf="userForm.controls.firstName.errors.minlength">First Name Minimum Lenth Is 3</p>
+                        <p *ngIf="userForm.controls.firstName.errors.maxlength">First Name Maximum Lenth Is 10</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" formControlName="lastName" class="form-control rounded-5" placeholder="Last Name">
+                    <div class="alert text-danger" *ngIf="userForm.controls.lastName.errors && userForm.controls.lastName.touched">
+                        <p *ngIf="userForm.controls.lastName.errors.required">Last Name Is Required</p>
+                        <p *ngIf="userForm.controls.lastName.errors.minlength">Last Name Minimum Lenth Is 3</p>
+                        <p *ngIf="userForm.controls.lastName.errors.maxlength">Last Name Maximum Lenth Is 10</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <input type="phone" formControlName="phone" class="form-control rounded-5 mt-3" placeholder="Phone Number">
+                    <div class="alert text-danger" *ngIf="userForm.controls.phone.errors && userForm.controls.phone.touched">
+                        <p *ngIf="userForm.controls.phone.errors.required">Phone Number Is Required</p>
+                        <!-- <p *ngIf="userForm.controls.phone.errors.pattern">Phone Number Is Invalid </p> -->
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <input type="email" formControlName="email" class="form-control rounded-5 mt-3" placeholder="Email">
+                    <div class="alert text-danger" *ngIf="userForm.controls.email.errors && userForm.controls.email.touched">
+                        <p *ngIf="userForm.controls.email.errors.required">Email Is Required</p>
+                        <p *ngIf="userForm.controls.email.errors.email">Email Is Invalid </p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <button routerLink="/listUser" class="btn btn-light px-3 mt-5 rounded-5 w-25">{{cancel}}</button>
+                    <button type="submit" class="btn btn-info px-3 mt-5 rounded-5 w-25">{{save}}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
