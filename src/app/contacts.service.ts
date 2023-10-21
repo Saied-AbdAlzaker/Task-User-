@@ -34,6 +34,12 @@ export class ContactsService {
     return this.http.get(`${this.url}/user`, {headers})
   }
 
+  getUsers(id:string):Observable<any>
+  {
+    const headers = this.getHeaders();
+    return this.http.get(`${this.url}/user/${id}`, {headers})
+  }
+
   deleteUsers(id:string):Observable<any>
   {
     const headers = this.getHeaders();

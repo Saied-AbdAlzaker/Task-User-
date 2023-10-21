@@ -1,8 +1,10 @@
+import { User } from './../user';
 import { ToastrModule } from 'ngx-toastr';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ContactsService } from '../contacts.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-addUser',
@@ -17,6 +19,7 @@ export class AddUserComponent implements OnInit {
 
   url: string = ''
 
+  
   constructor(private _ContactsService: ContactsService, private _Router: Router, private toastr: ToastrModule) { }
 
   getImg(event: any) {
@@ -60,17 +63,26 @@ export class AddUserComponent implements OnInit {
         // this.toastr.error(user.message , 'Error Message');
         alert(user.data.message);
       }
-
     })
   }
 
-  // onUpdateUsers(id:string){
-  //   this._ContactsService.updateUsers(this.userForm.value , id).subscribe((user)=>{
-  //     console.log(user.data);
-  //     this._Router.navigateByUrl('/listUser');
-  //     this.user = user.data;
-  //   })
-  // }
+  getUsersById(){
+    this._ContactsService.getUsers(this.userForm.value).subscribe((user)=>{
+      this.user = user.data;
+      console.log(user);
+      
+      this.userForm.patchValue({
+        firstName: user.firstName,
+        lastName: user.lastName,
+        phone: user.phone,
+        picture: user.picture,
+      })
+    })
+  }
+
+  onUpdateUsers(id:string){
+    this._Router.navigateByUrl('/'); 
+  }
 
 
   ngOnInit(): void {
