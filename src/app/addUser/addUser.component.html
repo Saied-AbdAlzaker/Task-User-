@@ -4,7 +4,7 @@
             <div class="box-img text-center my-3 position-relative">
                 <img [src]="url" alt="" class="mt-2">
                 <input type="file" hidden formControlName="picture" id="upload" (change)="getImg($event)">
-                <label for="upload" class="box-upload">{{photo}} {{user}}</label>
+                <label for="upload" class="box-upload">{{photo}} </label>
                 <div class="alert text-danger" *ngIf="userForm.controls.picture.errors && userForm.controls.picture.touched">
                     <p *ngIf="userForm.controls.picture.errors.required">Picture Is Required</p>
                 </div>
@@ -42,10 +42,12 @@
                 </div>
                 <div class="d-flex justify-content-between">
                     <button routerLink="/listUser" class="btn btn-light px-3 mt-5 rounded-5 w-25">{{cancel}}</button>
-                    <button type="submit" class="btn btn-info px-3 mt-5 rounded-5 w-25">{{save}}</button>
+                    <button (click)="getUsersById()" type="submit" class="btn btn-info px-3 mt-5 rounded-5 w-25">{{save}}</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
+
+
 

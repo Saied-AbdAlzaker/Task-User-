@@ -28,12 +28,10 @@ export class ListUserComponent implements OnInit {
     })
   }
 
- 
-
   onUpdateUsers(user: any, id: string) {
-    this._ContactsService.updateUsers(user, id).subscribe((user) => {
-      console.log(user.data);
-      this._Router.navigateByUrl('/addUser');
+    this._ContactsService.updateUsers(user , id).subscribe((user) => {
+      console.log(user.data.id);
+      this._Router.navigateByUrl('/addUser' +  id);
       // this.usersLists.push(user.data);
       this.usersLists = user.data;
     })

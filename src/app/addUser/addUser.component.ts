@@ -37,7 +37,7 @@ export class AddUserComponent implements OnInit {
     }
   }
 
-  user: any[] = [];
+  userList: any[] = [];
 
   userForm: FormGroup = new FormGroup({
     firstName: new FormControl(null, [Validators.required, Validators.maxLength(15), Validators.minLength(3)]),
@@ -51,6 +51,7 @@ export class AddUserComponent implements OnInit {
     // if(this.userForm.invalid){
     //   return;
     // }
+
     console.log(this.userForm.value);
 
     this._ContactsService.addUsers(this.userForm.value).subscribe((user) => {
@@ -68,8 +69,8 @@ export class AddUserComponent implements OnInit {
 
   getUsersById(){
     this._ContactsService.getUsers(this.userForm.value).subscribe((user)=>{
-      this.user = user.data;
-      console.log(user);
+      // this.userList = user.data;
+      console.log(user.data);
       
       this.userForm.patchValue({
         firstName: user.firstName,
@@ -77,13 +78,19 @@ export class AddUserComponent implements OnInit {
         phone: user.phone,
         picture: user.picture,
       })
-    })
+    } )
   }
 
-  onUpdateUsers(id:string){
-    this._Router.navigateByUrl('/'); 
-  }
-
+  // onUpdateUsers(id:string){
+  //   this._ContactsService.updateUsers(id).subscribe((user) => {
+  //     console.log(user.data);
+  //   this._Router.navigateByUrl('/'); 
+  //   }, error =>{
+  //     console.log(error.message);
+  //   }, ()=>{
+  //     console.log('Done');
+  //   })
+  // }
 
   ngOnInit(): void {
 

@@ -9,12 +9,16 @@ import { AddUserComponent } from './addUser/addUser.component';
 import { ListUserComponent } from './listUser/listUser.component';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { UserComponent } from './user/user.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddUserComponent,
-    ListUserComponent
+    ListUserComponent,
+    UserComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,

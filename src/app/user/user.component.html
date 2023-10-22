@@ -1,0 +1,18 @@
+<div class="user">
+    <div class="box container rounded-5 mt-5">
+        <form class="my-3 p-4" *ngFor="let user of usersLists">
+            <div class="content-img me-3">
+                <img [src]="user.picture" alt="" class="rounded-5">
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input id="fName" type="text" formControlName="firstName" [value]="user.firstName" class="form-control rounded-5" placeholder="First Name">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" formControlName="lastName" [value]="user.lastName" class="form-control rounded-5" placeholder="Last Name">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

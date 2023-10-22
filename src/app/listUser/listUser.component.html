@@ -19,9 +19,10 @@
         <div class="content-text">
             <p>{{user.firstName}} {{user.lastName}}</p>
             <p>{{user.id}}</p>
+
         </div>
         
-        <button (click)="onUpdateUsers(user ,user.id)" class="m-3 bg-body border-0"><i class="fa-regular fa-pen-to-square"
+        <button routerLink="/user" (click)="onUpdateUsers(user ,user.id)" class="m-3 bg-body border-0"><i class="fa-regular fa-pen-to-square"
                 style="color: #1BB0F0;"></i></button>
         <button (click)="onDeleteUsers(user.id)" class="my-3 bg-body border-0"><i class="fa-solid fa-trash" style="color: #EC1B1B;"></i></button>
     </div>
